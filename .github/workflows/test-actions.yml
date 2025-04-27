@@ -1,0 +1,17 @@
+name: A Test For Github actions
+run-name: ${{ github.actor }} is in training
+on: [push]
+jobs:
+  Alert-That-Everythings-Ok:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "  the job was successfully triggered by ${{ github.event_name }}"
+      - run: echo "🐧this is the *second* step, running on ${{runner.os}}"
+      - run: echo "heres some other info:\n github.ref ~ ${{github.ref}}\n github.repository ~ ${{github.repository}}"
+      - name: Check out repo code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} has been cloned to the runner, apparenttly "
+      - name: List files in the repo
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "the status is ${{ job.status }}
