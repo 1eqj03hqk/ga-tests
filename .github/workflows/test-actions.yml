@@ -14,4 +14,4 @@ jobs:
       - name: List files in the repo
         run: |
           ls ${{ github.workspace }}
-      - run: echo "the status is ${{ job.status }}
+      - run: echo "the status is ${{ job.status }}"
